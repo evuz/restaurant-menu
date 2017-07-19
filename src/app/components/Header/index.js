@@ -4,10 +4,10 @@ import logo from '../../assets/logo.svg';
 
 import './index.css';
 
-const HeaderComponent = ({ onClickImg }) => (
+const HeaderComponent = ({ onClickImg, img }) => (
   <div className="App-header">
-    <img src={logo}
-      className="App-logo"
+    <img src={img || logo}
+      className={img ? 'App-img' : 'App-logo'}
       alt="logo"
       onClick={onClickImg}
     />
