@@ -1,0 +1,72 @@
+.form_decorator_component {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+
+  .form_decorator_card {
+    background: #222;
+    padding: 20px 10% 20px 10%;
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    flex: 1;
+    margin-top: 0;
+    color: #FAF9F9;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    cursor: pointer;
+    align-items: center;
+    background: none;
+    border: 0;
+    border-radius: 3px;
+    color: lightskyblue;
+    display: flex;
+
+    font-family: $font;
+    font-size: 13px;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 20px;
+    outline: none;
+    padding: 10px 9px 10px 11px;
+    text-transform: uppercase;
+
+    .fa {
+      font-size: 12px;
+      margin-left: auto;
+      position: relative;
+      top: 1px;
+    }
+
+    &:hover {
+      opacity: .5;;
+    }
+
+    &:active {
+      filter: invert(100%);
+    }
+  }
+}
