@@ -3,13 +3,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import IntroComponent from '../components/Intro';
 import UserDataComponent from './UserData';
-import ExampleFormContainer from './ExampleFormContainer';
+import CreateRestaurantFormContainer from './CreateRestaurantFormContainer';
 
 const RouteContainer = () => (
   <Switch>
     <Route path="/" exact component={IntroComponent} />
     <Route path="/user" exact component={UserDataComponent} />
-    <Route path="/form" exact component={ExampleFormContainer} />
+    <Route path="/createRestaurant" exact component={CreateRestaurantFormContainer} />
   </Switch>
 );
 
