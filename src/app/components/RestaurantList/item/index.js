@@ -7,7 +7,12 @@ const RestaurantListItem = ({ item, onClickItem }) => (
     className="restaurant_list_item_component"
     onClick={onClickItem}
   >
-    {item.image ? <img src={item.image} alt={item.name} /> : null}
+    {
+      item.image ?
+        <div className="img">
+          <img src={item.image} alt={item.name} />
+        </div> : null
+    }
     <div className="info">
       <span>{item.name}</span>
       <span>{item.address}</span>
@@ -15,7 +20,7 @@ const RestaurantListItem = ({ item, onClickItem }) => (
     </div>
     <div className="contact">
       <span>{item.tel}</span>
-      <a href={item.url}>Go to Website</a>
+      {item.url ? <a href={item.url}>Go to Website</a> : null}
     </div>
   </li>
 );

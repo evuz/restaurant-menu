@@ -1,7 +1,5 @@
 .restaurant_list_component {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 10px;
   margin: 0;
+  overflow: auto;
 }

@@ -9,11 +9,20 @@
   height: 150px;
   box-shadow: lightgray 0px 0px 30px;
 
+  .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+  }
+
   img {
     height: 120px;
   }
 
-  img, .info, .contact {
+  .img, .info, .contact {
     margin: 0 10px;
   }
 
