@@ -2,7 +2,7 @@ import React from 'react';
 
 import FormDecoratorComponent from '../components/FormDecorator';
 import CreateRestaurantForm from '../containers/CreateRestaurantForm';
-import { saveRestaurant } from '../reducers/restaurant';
+import { saveRestaurant } from '../reducers/restaurants';
 
 const CreateRestaurantFormContainer = (props) => (
     <FormDecoratorComponent title="Example">
