@@ -1,0 +1,1 @@
+export const ADD_RESTAURANT = 'ADD_RESTAURANT';
