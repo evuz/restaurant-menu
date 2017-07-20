@@ -1,0 +1,34 @@
+.restaurant_list_item_component {
+  box-sizing: border-box;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border: 1px solid silver;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 150px;
+  box-shadow: lightgray 0px 0px 30px;
+
+  img {
+    height: 120px;
+  }
+
+  img, .info, .contact {
+    margin: 0 10px;
+  }
+
+  .info, .contact {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact {
+    flex: 1;
+    align-items: flex-end;
+  }
+
+  .info {
+    justify-content: space-around;
+  }
+}
