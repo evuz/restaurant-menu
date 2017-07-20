@@ -1,11 +1,14 @@
 import firebase from 'firebase';
 
-import { ADD_RESTAURANT } from './actionTypes';
+import {
+  ADD_RESTAURANT,
+  REMOVE_RESTAURANT_LIST
+} from './actionTypes';
 
 export function saveRestaurant(values) {
-    console.log(values);
-    const dbRef = firebase.database().ref('restaurants');
-    dbRef.push().set(values)
+  console.log(values);
+  const dbRef = firebase.database().ref('restaurants');
+  dbRef.push().set(values)
 }
 
 export function addRestaurant(restaurant) {
@@ -14,5 +17,11 @@ export function addRestaurant(restaurant) {
     payload: {
       restaurant
     }
+  }
+}
+
+export function removeRestaurantList() {
+  return {
+    type: REMOVE_RESTAURANT_LIST
   }
 }
