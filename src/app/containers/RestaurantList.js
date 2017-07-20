@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 
 import RestauranListComponent from '../components/RestaurantList';
-import { addRestaurant } from '../reducers/restaurants';
+import { addRestaurant, removeRestaurantList } from '../reducers/restaurants';
 
 class RestaurantListContainer extends Component {
   componentWillMount() {
@@ -11,6 +11,10 @@ class RestaurantListContainer extends Component {
       .on('child_added', snapshot => {
         this.props.addRestaurant(snapshot.val());
       });
+  }
+
+  componentWillUnmount() {
+    this.props.removeRestaurantList();
   }
 
   render() {
@@ -27,7 +31,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  addRestaurant
+  addRestaurant,
+  removeRestaurantList
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantListContainer);
