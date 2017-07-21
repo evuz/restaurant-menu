@@ -4,11 +4,14 @@ import {
   ADD_RESTAURANT,
   REMOVE_RESTAURANT_LIST
 } from './actionTypes';
+import { getCleanedString } from '../../utils/filters/cleanString';
 
 export function saveRestaurant(values) {
   console.log(values);
-  const dbRef = firebase.database().ref('restaurants');
-  dbRef.push().set(values)
+  const city = getCleanedString(values.city);
+  const name = getCleanedString(values.name);
+  firebase.database().ref(`/cities/${city}/${name}`).set(true);
+  firebase.database().ref(`/restaurants/${name}`).set(values);
 }
 
 export function addRestaurant(restaurant) {
