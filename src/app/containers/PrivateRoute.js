@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const PublicRedirect = ({ component: Component, user, ...rest }) => {
+const PrivateRedirect = ({ component: Component, user, ...rest }) => {
+  console.log(user);
   return (
     <Route { ...rest }
       render={(props) => (
@@ -20,4 +21,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default withRouter(connect(mapStateToProps)(PublicRedirect));
+export default withRouter(connect(mapStateToProps)(PrivateRedirect));
