@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import IntroComponent from '../components/Intro';
 import UserDataComponent from './UserData';
+import PrivateRoute from './PrivateRoute';
 import CreateRestaurantFormContainer from './CreateRestaurantFormContainer';
 import RestaurantListContainer from './RestaurantList';
 
@@ -10,7 +11,7 @@ const RouteContainer = () => (
   <Switch>
     <Route path="/" exact component={IntroComponent} />
     <Route path="/user" exact component={UserDataComponent} />
-    <Route path="/createRestaurant" exact component={CreateRestaurantFormContainer} />
+    <PrivateRoute path="/createRestaurant" exact component={CreateRestaurantFormContainer} />
     <Route path="/restaurants" exact component={RestaurantListContainer} />
   </Switch>
 );
