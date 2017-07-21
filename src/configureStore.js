@@ -3,13 +3,13 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk';
 
-import { createHashHistory } from 'history';
+import { createBrowserHistory } from 'history';
 
 import user from './app/reducers/user';
 import restaurants from './app/reducers/restaurants';
 
 function configureStore() {
-  const history = createHashHistory();
+  const history = createBrowserHistory();
   const appReducers = combineReducers({
     route: routerReducer,
     form: formReducer,
