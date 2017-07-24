@@ -13,6 +13,4 @@ const CreateRestaurantFormContainer = (props) => (
     </FormDecoratorComponent>
 )
 
-
-
 export default CreateRestaurantFormContainer;
