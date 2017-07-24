@@ -3,38 +3,33 @@ import { Field, reduxForm } from 'redux-form';
 
 import InputComponent from '../components/Input';
 
-const ExampleForm = (props) => (
-  <form onSubmit={props.handleSubmit}>
+const ExampleForm = (props) => {
+  const formFields = [
+    { name: 'name', type: 'text', placeholder: 'Name' },
+    { name: 'description', type: 'text', placeholder: 'City' },
+    { name: 'city', type: 'text', placeholder: 'Address' },
+    { name: 'tel', type: 'number', placeholder: 'Telephone' },
+  ];
+
+  const fieldsRenderer = formFields.map((field) => (
     <Field
-      name="name"
+      name={field.name}
       component={InputComponent}
-      type="text"
-      placeholder="Name"
+      type={field.type || 'text'}
+      placeholder={field.placeholder || ''}
     />
-    <Field
-      name="description"
-      component={InputComponent}
-      type="textarea"
-      placeholder="Description"
-    />
-    <Field
-      name="city"
-      component={InputComponent}
-      type="text"
-      placeholder="City"
-    />
-    <Field
-      name="favoritePosition"
-      component={InputComponent}
-      type="text"
-      placeholder="Favorite Position"
-    />
-    <div className="buttons">
-      <button type="submit">
-        Create
+  ))
+
+  return (
+    <form onSubmit={props.handleSubmit}>
+      {fieldsRenderer}
+      <div className="buttons">
+        <button type="submit">
+          Create
       </button>
-    </div>
-  </form>
-)
+      </div>
+    </form>
+  )
+}
 
 export default reduxForm({ form: 'example' })(ExampleForm)
