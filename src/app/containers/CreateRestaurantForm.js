@@ -3,56 +3,35 @@ import { Field, reduxForm } from 'redux-form';
 
 import InputComponent from '../components/Input';
 
-const CreateRestaurantForm = (props) => (
-  <form onSubmit={props.handleSubmit}>
+const CreateRestaurantForm = (props) => {
+  const formFields = [
+    { name: 'name', type: 'text', placeholder: 'Name' },
+    { name: 'city', type: 'text', placeholder: 'City' },
+    { name: 'address', type: 'text', placeholder: 'Address' },
+    { name: 'postalCode', type: 'text', placeholder: 'Postal Code' },
+    { name: 'tel', type: 'text', placeholder: 'Telephone' },
+    { name: 'image', type: 'text', placeholder: 'Image' },
+    { name: 'url', type: 'text', placeholder: 'Website' },
+  ];
+
+  const fieldsRenderer = formFields.map((field) => (
     <Field
-      name="name"
+      name={field.name}
       component={InputComponent}
-      type="text"
-      placeholder="Name"
+      type={field.type || 'text'}
+      placeholder={field.placeholder || ''}
     />
-    <Field
-      name="city"
-      component={InputComponent}
-      type="text"
-      placeholder="City"
-    />
-    <Field
-      name="address"
-      component={InputComponent}
-      type="textarea"
-      placeholder="Address"
-    />
-    <Field
-      name="postalCode"
-      component={InputComponent}
-      type="text"
-      placeholder="Postal Code"
-    />
-    <Field
-      name="tel"
-      component={InputComponent}
-      type="text"
-      placeholder="Telephone"
-    />
-    <Field
-      name="image"
-      component={InputComponent}
-      type="text"
-      placeholder="Image"
-    />
-    <Field
-      name="url"
-      component={InputComponent}
-      type="text"
-      placeholder="WebSite"
-    />
-    <div className="buttons">
-      <button type="submit">
-        Create
+  ))
+  return (
+    <form onSubmit={props.handleSubmit}>
+      {fieldsRenderer}
+      <div className="buttons">
+        <button type="submit">
+          Create
       </button>
-    </div>
-  </form>
-)
+      </div>
+    </form>
+  )
+}
 
 export default reduxForm({ form: 'example' })(CreateRestaurantForm)
