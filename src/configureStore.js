@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 
 import { createBrowserHistory } from 'history';
 
+import app from './app/reducers/app';
 import user from './app/reducers/user';
 import restaurants from './app/reducers/restaurants';
 
@@ -13,6 +14,7 @@ function configureStore() {
   const appReducers = combineReducers({
     route: routerReducer,
     form: formReducer,
+    app,
     user,
     restaurants
   });
