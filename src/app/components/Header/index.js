@@ -4,14 +4,14 @@ import logo from '../../assets/logo.svg';
 
 import './index.css';
 
-const HeaderComponent = ({ onClickImg, img }) => (
+const HeaderComponent = ({ title, onClickImg, img }) => (
   <div className="header_component">
     <img src={img || logo}
       className={img ? 'header_component_img' : 'header_component_logo'}
       alt="logo"
       onClick={onClickImg}
     />
-    <h2>Welcome to React</h2>
+    <h2>{title || 'Welcome to React'}</h2>
   </div>
 );
 
