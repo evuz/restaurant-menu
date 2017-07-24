@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import { connect } from 'react-redux';
 
 import RestauranListComponent from '../components/RestaurantList';
 import { addRestaurant, removeRestaurantList } from '../reducers/restaurants';
+import { listenOnAddRestaurant, listenOffAddRestaurant } from '../utils/api/restaurants';
 
 class RestaurantListContainer extends Component {
   componentWillMount() {
-    firebase.database().ref('restaurants')
-      .on('child_added', snapshot => {
-        this.props.addRestaurant(snapshot.val());
-      });
+    listenOnAddRestaurant(snapshot => {
+      this.props.addRestaurant(snapshot.val());
+    });
   }
 
   componentWillUnmount() {
     this.props.removeRestaurantList();
+    listenOffAddRestaurant();
   }
 
   render() {
