@@ -3,31 +3,44 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import firebase from 'firebase';
 
+import Loading from './components/Loading';
 import HeaderContainer from './containers/Header';
 import Route from './containers/Route';
 import { setUser } from './reducers/user';
+import { initApp } from './reducers/app';
 
 import './App.css';
 
 class App extends Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
-      this.props.setUser(user);
+      this.props.setUser(user || {});
+      this.props.initApp(true);
     });
   }
 
   render() {
+    const { app: { initialized } } = this.props;
     return (
-      <div className="App">
-        <HeaderContainer />
-        <Route />
-      </div>
+      initialized ?
+        <div className="App">
+          <HeaderContainer />
+          <Route />
+        </div> :
+        <div className="App">
+          <Loading />
+        </div>
     );
   }
 }
 
-const mapDispatchToProps = {
-  setUser
-}
+const mapStateToProps = ({ app }) => ({
+  app
+});
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+const mapDispatchToProps = {
+  setUser,
+  initApp
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
