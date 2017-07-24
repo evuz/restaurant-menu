@@ -15,7 +15,7 @@ const CreateRestaurantForm = (props) => {
   ];
 
   const fieldsRenderer = formFields.map((field) => (
-    <Field
+    <Field key={field.name}
       name={field.name}
       component={InputComponent}
       type={field.type || 'text'}
