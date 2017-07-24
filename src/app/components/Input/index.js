@@ -2,8 +2,10 @@ import React from 'react';
 
 import './index.css';
 
-const InputComponent = ({input, type, placeholder, name}) => (
-  <div className="input_component">
+const InputComponent = ({ widthPercent, input, type, placeholder, name }) => (
+  <div className="input_component"
+    style={{ flexBasis: `${widthPercent}%` }}
+  >
     <input
       autoComplete="false"
       {...input}

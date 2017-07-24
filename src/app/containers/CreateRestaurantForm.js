@@ -6,10 +6,10 @@ import InputComponent from '../components/Input';
 const CreateRestaurantForm = (props) => {
   const formFields = [
     { name: 'name', type: 'text', placeholder: 'Name' },
-    { name: 'city', type: 'text', placeholder: 'City' },
     { name: 'address', type: 'text', placeholder: 'Address' },
-    { name: 'postalCode', type: 'text', placeholder: 'Postal Code' },
-    { name: 'tel', type: 'text', placeholder: 'Telephone' },
+    { name: 'city', type: 'text', placeholder: 'City', widthPercent: 40 },
+    { name: 'postalCode', type: 'text', placeholder: 'Postal Code', widthPercent: 20 },
+    { name: 'tel', type: 'text', placeholder: 'Telephone', widthPercent: 30 },
     { name: 'image', type: 'text', placeholder: 'Image' },
     { name: 'url', type: 'text', placeholder: 'Website' },
   ];
@@ -18,6 +18,7 @@ const CreateRestaurantForm = (props) => {
     <Field key={field.name}
       name={field.name}
       component={InputComponent}
+      widthPercent={field.widthPercent}
       type={field.type || 'text'}
       placeholder={field.placeholder || ''}
     />
